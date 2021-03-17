@@ -1,10 +1,12 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function DisplayCard({deckCards}) {
   
   const [Card, setCard] = useState(0);
   const [Side, setSide] = useState(true);
+
+  const history = useHistory();
 
   function handleFlip() {
     setSide(!Side);
@@ -14,7 +16,7 @@ function DisplayCard({deckCards}) {
     setCard(prevCard => prevCard + 1);
     setSide(true); // sets side to front when switching to another card
     if (Card === deckCards.length - 1) {
-      return window.confirm("Restart Cards?") ? setCard(0) : window.open("/", "Home");
+      return window.confirm("Restart Cards?") ? setCard(0) : history.push("/");
     }
   }
 
