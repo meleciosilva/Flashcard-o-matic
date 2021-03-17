@@ -1,7 +1,11 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory, useRouteMatch} from "react-router-dom";
+import { deleteDeck } from "../utils/api";
+
 
 function DisplayDeck({deck}) {
+  const history = useHistory();
+  const {url} = useRouteMatch();
   return (
     <div className="col-sm-12">
       <div className="card" style={{border: "none"}}>
@@ -11,11 +15,21 @@ function DisplayDeck({deck}) {
           <div className="d-flex justify-content-between">
             <div>
               <Link className="btn btn-secondary mr-1">Edit</Link>
-              <Link className="btn btn-primary mr-1">Study</Link>
+              <Link to={`${url}/study`}className="btn btn-primary mr-1">Study</Link>
               <Link className="btn btn-primary"><strong>+ Add Cards</strong></Link>
             </div>
             <div>
-              <Link className="btn btn-danger">Delete</Link>
+              <Link className="btn btn-danger" onClick={() => {
+                      if (window.confirm("Are you sure you want to delete this deck?")) {
+                        deleteDeck(deck.id);
+                        history.push("/");
+                      } else {
+                        history.push(`${url}`);
+                      }
+                    }
+                  }>
+                    Delete
+                </Link>
             </div>
           </div>
         </div>
