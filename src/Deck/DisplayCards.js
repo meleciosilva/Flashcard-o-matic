@@ -1,7 +1,11 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { deleteCard } from "../utils/api";
+import {Link, useRouteMatch, useHistory} from "react-router-dom";
 
 function DisplayCards({cards}) {
+  const {url} = useRouteMatch();
+  const history = useHistory();
+  
   return (
     cards.map(card => {
       return (
@@ -12,7 +16,16 @@ function DisplayCards({cards}) {
               <p className="card-text"><strong>Back: </strong>{card.back}</p>
               <div className= "d-flex justify-content-end">
                 <Link className="btn btn-secondary mr-1">Edit</Link>
-                <Link className="btn btn-danger">Delete</Link>
+                <Link className="btn btn-danger" onClick={() => {
+                    if (window.confirm("Are you sure you want to delete this card?")) {
+                      deleteCard(card.id)
+                    } else {
+                      history.push(`${url}`)
+                    }
+                  }
+                }>
+                    Delete
+                </Link>
               </div>  
             </div>        
           </div>
