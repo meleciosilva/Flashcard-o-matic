@@ -1,10 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function CreateDeckButton() {
   return (
-    <div class="row">
-      <div class="col-sm-6">
-        <button type="button" class="btn btn-secondary mb-1"><strong>+</strong> Create Deck</button>
+    <div className="row">
+      <div className="col-sm-6 mb-1">
+        <Link to={"/"} className="btn btn-outline-primary"><strong>+ Add Deck</strong></Link>
       </div>
     </div>  
   )
