@@ -1,7 +1,15 @@
 import React from "react";
+import Decks from "./Decks";
+import CreateDeckButton from "./CreateDeckButton";
 
 function Home() {
-  return <h1>I'm Home</h1>
+  
+  return (
+    <>
+      <CreateDeckButton />
+      <Decks />
+    </>
+  )
 }
 
 export default Home;
