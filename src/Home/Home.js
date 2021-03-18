@@ -1,14 +1,12 @@
 import React from "react";
-import Decks from "./Decks";
-import CreateDeckButton from "./CreateDeckButton";
+import ShowDecks from "./ShowDecks";
 
 function Home() {
-  
+    
   return (
-    <>
-      <CreateDeckButton />
-      <Decks />
-    </>
+    <div class="container">
+      <ShowDecks />
+    </div>
   )
 }
 

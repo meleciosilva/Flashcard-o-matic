@@ -13,11 +13,11 @@ function Study({decks, cards}) {
   const deckCards = cards.filter(item => item.deckId === +deckId);
   
   return (
-  <>
-    <NavBar deck={deck}/>
-    <h1 style={{textAlign:"center"}}>{deck.name}</h1>
-    <DisplayCard deckCards={deckCards}/>
-  </>
+    <>
+      <NavBar deck={deck}/>
+      <h1 style={{textAlign:"center"}}>{deck.name}</h1>
+      <DisplayCard deckCards={deckCards}/>
+    </>
   )
 }
 

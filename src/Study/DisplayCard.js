@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Link, useHistory} from "react-router-dom";
+import NotEnoughCards from "./NotEnoughCards";
 
 function DisplayCard({deckCards}) {
   
@@ -25,6 +26,9 @@ function DisplayCard({deckCards}) {
     setSide(true);
   }
   
+  if (deckCards.length < 3) {
+    return <NotEnoughCards deckCards={deckCards} />
+  }
   return (
     <div className="row py-2 d-flex justify-content-center">
       <div className="col-sm-6">
