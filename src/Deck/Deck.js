@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 
 function Deck({decks, cards}) {
   const {deckId} = useParams();
-  
+
   // identifies selected deck to view
   const deck = decks.find((item) => item.id === +deckId);
 

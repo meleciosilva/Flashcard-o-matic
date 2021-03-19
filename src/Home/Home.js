@@ -4,7 +4,7 @@ import ShowDecks from "./ShowDecks";
 function Home() {
     
   return (
-    <div class="container">
+    <div className="container">
       <ShowDecks />
     </div>
   )

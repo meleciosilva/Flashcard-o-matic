@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { createDeck } from "../utils/api";
+import { updateDeck } from "../utils/api";
 import {useHistory} from "react-router-dom";
 
-function CreateDeck({decks}) {
+function EditDeck({deck}) {
   const history = useHistory();
 
   const [name, setName] = useState([]);
@@ -18,13 +18,13 @@ function CreateDeck({decks}) {
 
   return (
     <>
-      <h1>Create Deck</h1>
-      <form>
+      <h1>Edit Deck</h1>
+      {/* <form>
         <div className="form-group">
           <label for="exampleFormControlInput1">Name:</label>
-          <input type="text" className="form-control" id="name" placeholder="Deck Name" onChange={handleName}/>
+          <input type="text" className="form-control" id="name" onChange={handleName}/>
         </div>
-        <div className="form-group">
+        <div class="form-group">
           <label for="exampleFormControlTextarea1">Description:</label>
           <textarea className="form-control" id="description" rows="3" placeholder="Brief Description of Deck" onChange={handleDescription}></textarea>
         </div>
@@ -33,15 +33,15 @@ function CreateDeck({decks}) {
           type="button"
           className="btn btn-primary"
           onClick={() => {
-            createDeck({...name, ...description});
-            history.push(`/decks/${decks.length + 1}`);
+            updateDeck({...name, ...description});
+            // history.push(`/decks/${decks.length + 1}`);
           }
           }>
           Submit
         </button>
-      </form>
+      </form> */}
     </>
   )
 }
 
-export default CreateDeck;
+export default EditDeck;

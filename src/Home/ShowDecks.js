@@ -23,7 +23,7 @@ function ShowDecks() {
     }
     fetchDecks();
     }
-    ,[change]);
+    ,[]);
 
   useEffect(() => {
      async function fetchCards() {
@@ -81,7 +81,7 @@ function ShowDecks() {
         </div>
       </Route>
       <Route path="/decks/new">
-        <CreateDeck decks={decks}/>
+        <CreateDeck decks={decks} />
       </Route>
       <Route exact path="/decks/:deckId">
         <Deck decks={decks} cards={cards} />

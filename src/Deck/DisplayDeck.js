@@ -1,12 +1,14 @@
 import React from "react";
-import {Link, useHistory, useRouteMatch} from "react-router-dom";
+import {Link, useHistory, useRouteMatch, Switch, Route} from "react-router-dom";
 import { deleteDeck } from "../utils/api";
+import EditDeck from "./../EditDeck/EditDeck";
 
 
 function DisplayDeck({deck}) {
   const history = useHistory();
-  const {url} = useRouteMatch();
-  return (
+  const {path, url} = useRouteMatch();
+  
+  const deckCard = 
     <div className="col-sm-12">
       <div className="card" style={{border: "none"}}>
         <div className="card-body">
@@ -14,8 +16,12 @@ function DisplayDeck({deck}) {
           <p className="card-text">{deck.description}</p>
           <div className="d-flex justify-content-between">
             <div>
-              <Link className="btn btn-secondary mr-1">Edit</Link>
-              <Link to={`${url}/study`}className="btn btn-primary mr-1">Study</Link>
+              <Link to={`${url}/edit`} className="btn btn-secondary mr-1">Edit</Link>
+              <Link to={`${url}/study`} className="btn btn-primary mr-1" onClick={() => {
+
+                }}>
+                  Study
+              </Link>
               <Link className="btn btn-primary"><strong>+ Add Cards</strong></Link>
             </div>
             <div>
@@ -35,7 +41,18 @@ function DisplayDeck({deck}) {
         </div>
       </div>
     </div>
+
+  return (
+    <Switch>
+      <Route exact path={path}>
+        {deckCard}
+      </Route>
+      <Route exact path={`${path}/edit`}>
+        <EditDeck deck={deck} />
+      </Route>
+    </Switch>
   )
+  
 }
 
 export default DisplayDeck;
