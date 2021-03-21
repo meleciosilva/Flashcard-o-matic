@@ -8,7 +8,7 @@ function NotEnoughCards({deckCards}) {
     <>
       <h1>Not Enough Cards</h1>
       <p>You need at least 3 cards to study. You have {deckCards.length} cards in your deck.</p>
-      <Link to={`/decks/${deckId}/cards/new`} type="button" class="btn btn-primary"><strong>+ Add Cards</strong></Link>
+      <Link to={`/decks/${deckId}/cards/new`} type="button" className="btn btn-primary"><strong>+ Add Cards</strong></Link>
     </>
   )
 }
