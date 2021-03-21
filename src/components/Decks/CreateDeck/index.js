@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { createDeck } from "../utils/api";
 import {useHistory} from "react-router-dom";
+import { createDeck } from "../../../utils/api/index";
 
-function CreateDeck({decks}) {
+function CreateDeck() {
   const history = useHistory();
 
   const [name, setName] = useState([]);
@@ -33,8 +33,9 @@ function CreateDeck({decks}) {
           type="button"
           className="btn btn-primary"
           onClick={() => {
-            createDeck({...name, ...description});
-            history.push(`/decks/${decks.length + 1}`);
+            history.push("/")
+            // const newDeck = createDeck({...name, ...description});
+            // history.push(`/decks/${decks.length + 1}`);
           }
           }>
           Submit

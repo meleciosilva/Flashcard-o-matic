@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteCard } from "../utils/api";
+import { deleteCard } from "./../../../utils/api";
 import {Link, useRouteMatch, useHistory} from "react-router-dom";
 
 function DisplayCards({cards}) {

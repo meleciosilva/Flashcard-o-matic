@@ -1,14 +1,14 @@
 import React from "react";
-import {Link, useHistory, useRouteMatch, Switch, Route} from "react-router-dom";
-import { deleteDeck } from "../utils/api";
-import EditDeck from "./../EditDeck/EditDeck";
+import {Link, useHistory, useRouteMatch} from "react-router-dom";
+import { deleteDeck } from "./../../../utils/api";
+// import EditDeck from "../EditDeck/EditDeck";
 
 
 function DisplayDeck({deck}) {
   const history = useHistory();
-  const {path, url} = useRouteMatch();
+  const {url} = useRouteMatch();
   
-  const deckCard = 
+  return (
     <div className="col-sm-12">
       <div className="card" style={{border: "none"}}>
         <div className="card-body">
@@ -41,16 +41,6 @@ function DisplayDeck({deck}) {
         </div>
       </div>
     </div>
-
-  return (
-    <Switch>
-      <Route exact path={path}>
-        {deckCard}
-      </Route>
-      <Route exact path={`${path}/edit`}>
-        <EditDeck deck={deck} />
-      </Route>
-    </Switch>
   )
   
 }

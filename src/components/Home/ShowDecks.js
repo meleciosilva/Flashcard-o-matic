@@ -1,43 +1,18 @@
 import React, {useState, useEffect} from "react";
-import {Link, Switch, Route, useHistory} from "react-router-dom";
-import { deleteDeck } from "../utils/api";
-import Deck from "../Deck/Deck";
-import Study from "../Study/Study";
-import CreateDeck from "./../CreateDeck/CreateDeck";
+import {Link, Route, useHistory} from "react-router-dom";
+import { deleteDeck } from "./../../utils/api/index";
 import AddDeckButton from "./AddDeckButton";
 
-function ShowDecks() {
-
-  const [decks, setDecks] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [change, setChange] = useState(false); //used as dependency for re-render
+function ShowDecks({decks, cards}) {
 
   const history = useHistory();
 
-
-  useEffect(() => {
-    async function fetchDecks() {
-      const response = await fetch("http://localhost:5000/decks");
-      const result = await response.json();
-      setDecks(result);
-    }
-    fetchDecks();
-    }
-    ,[]);
-
-  useEffect(() => {
-     async function fetchCards() {
-      const response = await fetch("http://localhost:5000/cards");
-      const result = await response.json();
-      setCards(result);
-    }
-    fetchCards();
-    }
-    ,[change]);  
-
-  const allDecks = decks.map((deck) => {
-    const deckCards = cards.filter(card => card.deckId === deck.id);
+  // creates a card listing for each deck
+  const deckListings = decks.map((deck) => {
+    
     // filters cards for each deck
+    const deckCards = cards.filter(card => card.deckId === deck.id);
+      
     return (
       <div className="col-sm-6" key={deck.id}>
         <div className="card">
@@ -56,7 +31,6 @@ function ShowDecks() {
                 <Link to={"/"} className="btn btn-danger" onClick={() => {
                     if (window.confirm("Are you sure you want to delete this deck?")) {
                       deleteDeck(deck.id);
-                      setChange(!change);
                     } else {
                       history.push("/")
                     }
@@ -69,29 +43,19 @@ function ShowDecks() {
           </div>
         </div>
       </div>
-    )
+      )
   })
   
   return (
-    <Switch>
+    <div className="container">
       <Route exact path="/">
         <AddDeckButton />
         <div className="row">
-          {allDecks}
+          {deckListings}
         </div>
       </Route>
-      <Route path="/decks/new">
-        <CreateDeck decks={decks} />
-      </Route>
-      <Route exact path="/decks/:deckId">
-        <Deck decks={decks} cards={cards} />
-      </Route>
-      <Route path="/decks/:deckId/study">
-        <Study decks={decks} cards={cards} />
-      </Route>
-    </Switch>
+    </div>
   )
-  
 }
 
 export default ShowDecks;
