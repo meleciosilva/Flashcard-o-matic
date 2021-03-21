@@ -28,7 +28,7 @@ function EditForm({deck}) {
           <label htmlFor="exampleFormControlInput1">Name:</label>
           <input type="text" className="form-control" id="name" value={name.name} onChange={handleName}/>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="exampleFormControlTextarea1">Description:</label>
           <textarea className="form-control" id="description" rows="3" value={description.description} onChange={handleDescription}></textarea>
         </div>
