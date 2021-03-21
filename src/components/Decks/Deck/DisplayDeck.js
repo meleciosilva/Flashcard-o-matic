@@ -1,8 +1,6 @@
 import React from "react";
 import {Link, useHistory, useRouteMatch} from "react-router-dom";
 import { deleteDeck } from "./../../../utils/api";
-// import EditDeck from "../EditDeck/EditDeck";
-
 
 function DisplayDeck({deck}) {
   const history = useHistory();
@@ -22,7 +20,7 @@ function DisplayDeck({deck}) {
                 }}>
                   Study
               </Link>
-              <Link className="btn btn-primary"><strong>+ Add Cards</strong></Link>
+              <Link to={`${url}/cards/new`} className="btn btn-primary"><strong>+ Add Cards</strong></Link>
             </div>
             <div>
               <Link className="btn btn-danger" onClick={() => {
