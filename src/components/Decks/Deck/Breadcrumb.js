@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-function NavBar({deck}) {
+function Breadcrumb({deck}) {
   return (
     <nav aria-label="breadcrumb">
     <ol className="breadcrumb">
@@ -12,4 +12,4 @@ function NavBar({deck}) {
   )
 }
 
-export default NavBar;
+export default Breadcrumb;

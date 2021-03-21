@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import NavBar from "./NavBar";
+import Breadcrumb from "./Breadcrumb";
 import {useParams, Switch, Route, useRouteMatch} from "react-router-dom";
 import DisplayDeck from "./DisplayDeck";
 import DisplayCards from "./DisplayCards";
@@ -29,7 +29,7 @@ function Deck() {
     <>
       <Switch>
         <Route exact path={`${path}`}>
-          <NavBar deck={deck}/>
+          <Breadcrumb deck={deck}/>
           <div className="row">
             <DisplayDeck deck={deck}/>
             <DisplayCards cards={deckCards} />
