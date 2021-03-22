@@ -23,7 +23,7 @@ function DisplayDeck({deck}) {
               <Link to={`${url}/cards/new`} className="btn btn-primary"><strong>+ Add Cards</strong></Link>
             </div>
             <div>
-              <Link className="btn btn-danger" onClick={() => {
+              <button className="btn btn-danger" onClick={() => {
                       if (window.confirm("Are you sure you want to delete this deck?")) {
                         deleteDeck(deck.id);
                         history.push("/");
@@ -33,7 +33,7 @@ function DisplayDeck({deck}) {
                     }
                   }>
                     Delete
-                </Link>
+                </button>
             </div>
           </div>
         </div>

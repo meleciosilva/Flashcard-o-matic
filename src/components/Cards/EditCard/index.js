@@ -1,7 +1,11 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 
 function EditCard() {
-  return <h1>Edit Card</h1>
+  
+  const {cardId} = useParams();
+  
+  return <h1>Card ID: {cardId}</h1>
 }
 
 export default EditCard;

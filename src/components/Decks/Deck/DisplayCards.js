@@ -15,8 +15,8 @@ function DisplayCards({cards}) {
               <p className="card-text"><strong>Front: </strong>{card.front}</p>
               <p className="card-text"><strong>Back: </strong>{card.back}</p>
               <div className= "d-flex justify-content-end">
-                <Link className="btn btn-secondary mr-1">Edit</Link>
-                <Link className="btn btn-danger" onClick={() => {
+                <Link to={`${url}/cards/${card.id}/edit`}className="btn btn-secondary mr-1">Edit</Link>
+                <button className="btn btn-danger" onClick={() => {
                     if (window.confirm("Are you sure you want to delete this card?")) {
                       deleteCard(card.id)
                     } else {
@@ -25,7 +25,7 @@ function DisplayCards({cards}) {
                   }
                 }>
                     Delete
-                </Link>
+                </button>
               </div>  
             </div>        
           </div>

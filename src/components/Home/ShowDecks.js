@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, Route, useHistory} from "react-router-dom";
 import { deleteDeck } from "./../../utils/api/index";
-import AddDeckButton from "./AddDeckButton";
+import CreateDeckButton from "./CreateDeckButton";
 
 function ShowDecks({decks, cards}) {
 
@@ -49,7 +49,7 @@ function ShowDecks({decks, cards}) {
   return (
     <div className="container">
       <Route exact path="/">
-        <AddDeckButton />
+        <CreateDeckButton />
         <div className="row">
           {deckListings}
         </div>

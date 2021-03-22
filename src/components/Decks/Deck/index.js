@@ -42,7 +42,7 @@ function Deck() {
           <EditDeck deck={deck} />
         </Route>
         <Route path={`${path}/cards`}>
-          <Cards deckCards={deckCards} />
+          <Cards deck={deck} deckCards={deckCards} />
         </Route>
       </Switch>
     </>

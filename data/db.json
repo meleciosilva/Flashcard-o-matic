@@ -14,16 +14,6 @@
       "id": 3,
       "name": "Updated",
       "description": "This should work."
-    },
-    {
-      "id": 4,
-      "name": "Hello There;l;l;ldfgfgd",
-      "description": "Good Morning;l;l;l;gfdfdg"
-    },
-    {
-      "name": "gdfgdf",
-      "description": "gfdgdfg",
-      "id": 5
     }
   ],
   "cards": [
@@ -63,6 +53,12 @@
       "back": "b",
       "deckId": 1,
       "id": 7
+    },
+    {
+      "front": "frontttt",
+      "back": "backkkk",
+      "deckId": 2,
+      "id": 8
     }
   ]
 }
