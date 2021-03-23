@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import { updateDeck, readDeck } from "./../../../utils/api";
+import React, {useState} from "react";
+import { updateDeck } from "./../../../utils/api";
 import {useHistory} from "react-router-dom";
 
 function EditForm({deck}) {
@@ -7,10 +7,6 @@ function EditForm({deck}) {
 
   const [name, setName] = useState({"name": deck.name});
   const [description, setDescription] = useState({"description": deck.description});
-
-  useEffect(() => {
-    readDeck(deck.id);
-  })
 
   function handleName(event) {
     setName({...name, "name": event.target.value});
