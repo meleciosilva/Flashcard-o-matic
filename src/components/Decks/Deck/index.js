@@ -6,25 +6,24 @@ import DisplayCards from "./DisplayCards";
 import Study from "./../Study/index";
 import EditDeck from "./../EditDeck/index";
 import Cards from "./../../Cards/index";
+import { readDeck } from "../../../utils/api";
 
 
 function Deck() {
   const {deckId} = useParams();
   const {path} = useRouteMatch();
 
-  const [deckCards, setDeckCards] = useState([]);
-  const [deck, setDeck] = useState([]);
+  const [deck, setDeck] = useState(null);
 
   useEffect(() => {
-    async function fetchDeckCards() {
-      const response = await fetch(`http://localhost:5000/decks/${deckId}?_embed=cards`);
-      const result = await response.json();
-      setDeckCards(result.cards);
-      setDeck(result);
+    async function getDeck() {
+      const response = await readDeck(deckId);
+      setDeck(response);
     }
-    fetchDeckCards();
+    getDeck();
     }, [deckId]);
 
+  if (!deck) return null;
   return (
     <>
       <Switch>
@@ -32,17 +31,17 @@ function Deck() {
           <Breadcrumb deck={deck}/>
           <div className="row">
             <DisplayDeck deck={deck}/>
-            <DisplayCards cards={deckCards} />
+            <DisplayCards deck={deck} />
           </div>
         </Route>
         <Route path={`${path}/study`}>
-          <Study deck={deck} deckCards={deckCards}/>
+          <Study />
         </Route>
         <Route path={`${path}/edit`}>
           <EditDeck deck={deck} />
         </Route>
         <Route path={`${path}/cards`}>
-          <Cards deck={deck} deckCards={deckCards} />
+          <Cards />
         </Route>
       </Switch>
     </>

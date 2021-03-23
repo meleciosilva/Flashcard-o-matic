@@ -1,34 +1,25 @@
 import React, { useState, useEffect } from "react";
+import CreateDeckButton from "./CreateDeckButton";
 import ShowDecks from "./ShowDecks";
+import {listDecks} from "./../../utils/api/index";
 
 function Home() {
   
   const [decks, setDecks] = useState([]);
-  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     async function fetchDecks() {
-      const response = await fetch("http://localhost:5000/decks");
-      const result = await response.json();
-      setDecks(result);
+      const response = await listDecks();
+      setDecks(response);
     }
     fetchDecks();
-  }
-    ,[]);
+  }, []);
 
-  useEffect(() => {
-    async function fetchCards() {
-     const response = await fetch("http://localhost:5000/cards");
-     const result = await response.json();
-     setCards(result);
-   }
-   fetchCards();
-  }
-   ,[]);
-
+  if (!decks) return null;
   return (
     <div className="container">
-      <ShowDecks decks={decks} cards={cards}/>
+      <CreateDeckButton />
+      <ShowDecks decks={decks} />
     </div>
   )
 }

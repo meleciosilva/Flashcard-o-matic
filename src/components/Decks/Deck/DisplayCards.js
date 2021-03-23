@@ -2,12 +2,12 @@ import React from "react";
 import { deleteCard } from "./../../../utils/api";
 import {Link, useRouteMatch, useHistory} from "react-router-dom";
 
-function DisplayCards({cards}) {
+function DisplayCards({deck}) {
   const {url} = useRouteMatch();
   const history = useHistory();
   
   return (
-    cards.map(card => {
+    deck.cards.map(card => {
       return (
         <div className="col-sm-6" key={card.id}>
           <div className="card">

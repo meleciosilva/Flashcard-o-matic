@@ -1,18 +1,31 @@
-import React from "react";
-import {Switch, Route, useRouteMatch} from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {Switch, Route, useRouteMatch, useParams} from "react-router-dom";
 import AddCard from "./AddCard/index";
 import EditCard from "./EditCard/index";
+import { readDeck } from "../../utils/api";
 
-function Cards({deck, deckCards}) {
+function Cards() {
   const {path} = useRouteMatch();
+  const {deckId} = useParams();
 
+  const [deck, setDeck] = useState(null);
+
+  useEffect(() => {
+    async function getDeck() {
+      const response = await readDeck(deckId);
+      setDeck(response);
+    }
+    getDeck();
+  })
+
+  if (!deck) return null;
   return (
     <Switch>
       <Route exact path={`${path}/new`}>
-        <AddCard deck={deck} deckCards={deckCards}/>
+        <AddCard deck={deck} />
       </Route>
       <Route path={`${path}/:cardId/edit`}>
-        <EditCard deck={deck} deckCards={deckCards}/>
+        <EditCard deck={deck} />
       </Route>
     </Switch>
   )

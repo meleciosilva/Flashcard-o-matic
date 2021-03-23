@@ -20,7 +20,6 @@ function AddForm() {
   
   return (
     <>
-      <h1>Add Card</h1>
       <form>
         <div className="form-group">
           <label htmlFor="exampleFormControlInput1">Front:</label>

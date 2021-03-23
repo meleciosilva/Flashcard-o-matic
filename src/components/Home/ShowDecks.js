@@ -1,17 +1,14 @@
 import React from "react";
-import {Link, Route, useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import { deleteDeck } from "./../../utils/api/index";
-import CreateDeckButton from "./CreateDeckButton";
 
-function ShowDecks({decks, cards}) {
+function ShowDecks({decks}) {
 
   const history = useHistory();
 
   // creates a card listing for each deck
   const deckListings = decks.map((deck) => {
-    
-    // filters cards for each deck
-    const deckCards = cards.filter(card => card.deckId === deck.id);
+    const cards = deck.cards;
       
     return (
       <div className="col-sm-6" key={deck.id}>
@@ -19,7 +16,7 @@ function ShowDecks({decks, cards}) {
           <div className="card-body">
             <div className='d-flex justify-content-between'>
               <h5 className="card-title">{deck.name}</h5>
-              <p>Cards: {deckCards.length}</p>
+              <p>{`${cards.length} cards`}</p>
             </div>
             <p className="card-text">{deck.description}</p>
             <div className="d-flex justify-content-between">
@@ -47,13 +44,8 @@ function ShowDecks({decks, cards}) {
   })
   
   return (
-    <div className="container">
-      <Route exact path="/">
-        <CreateDeckButton />
-        <div className="row">
-          {deckListings}
-        </div>
-      </Route>
+    <div className="row">
+      {deckListings}
     </div>
   )
 }
