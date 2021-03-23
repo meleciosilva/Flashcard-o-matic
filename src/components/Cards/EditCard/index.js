@@ -1,11 +1,15 @@
 import React from "react";
-import {useParams} from "react-router-dom";
+import Breadcrumb from "./Breadcrumb";
+import EditForm from "./EditForm";
 
-function EditCard() {
-  
-  const {cardId} = useParams();
-  
-  return <h1>Card ID: {cardId}</h1>
+function EditCard({deck, deckCards}) {
+    
+  return (
+    <>
+      <Breadcrumb deck={deck} />
+      <EditForm deck={deck} deckCards={deckCards} />
+    </>
+  )
 }
 
 export default EditCard;
