@@ -48,18 +48,6 @@
       "back": "b",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "id": 8,
-      "front": "now this is the new front",
-      "deckId": 2,
-      "back": "and the back"
-    },
-    {
-      "id": 9,
-      "deckId": 2,
-      "front": "new one herehhhhdfghfgd",
-      "back": "describe thishhhhfghfgh"
     }
   ]
 }

@@ -1,8 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
-import { deleteDeck } from "./../../utils/api/index";
+import { deleteDeck, listDecks } from "./../../utils/api/index";
 
-function ShowDecks({decks}) {
+function ShowDecks() {
+
+  const [decks, setDecks] = useState([]);
+
+  useEffect(() => {
+    async function fetchDecks() {
+      const response = await listDecks();
+      setDecks(response);
+    }
+    fetchDecks();
+  }, []);
 
   const history = useHistory();
 
@@ -25,16 +35,20 @@ function ShowDecks({decks}) {
                 <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
               </div>
               <div>
-                <Link to={"/"} className="btn btn-danger" onClick={() => {
+                <button className="btn btn-danger" onClick={() => {
                     if (window.confirm("Are you sure you want to delete this deck?")) {
                       deleteDeck(deck.id);
+                      setDecks(prevDeck => {
+                        const newDeck = prevDeck.filter(item => item.id !== deck.id)
+                        return newDeck;
+                      })  
                     } else {
-                      history.push("/")
+                      history.push("/");
                     }
                   }
                 }>
                     Delete
-                </Link>
+                </button>
               </div>
             </div>
           </div>

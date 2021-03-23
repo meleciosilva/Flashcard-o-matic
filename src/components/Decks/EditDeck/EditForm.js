@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { updateDeck } from "./../../../utils/api";
 import {useHistory} from "react-router-dom";
 
-function EditForm({deck}) {
+function EditForm({deck, setDeck}) {
   const history = useHistory();
 
   const [name, setName] = useState({"name": deck.name});

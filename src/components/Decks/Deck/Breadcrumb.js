@@ -1,7 +1,21 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {Link, useParams} from "react-router-dom";
+import {readDeck} from "./../../../utils/api/index";
 
-function Breadcrumb({deck}) {
+function Breadcrumb() {
+  
+  const {deckId} = useParams();
+  const [deck, setDeck] = useState(null);
+
+  useEffect(() => {
+    async function getDeck() {
+      const response = await readDeck(deckId);
+      setDeck(response);
+    }
+    getDeck();
+  }, [deckId])
+  
+  if (!deck) return null;
   return (
     <nav aria-label="breadcrumb">
     <ol className="breadcrumb">

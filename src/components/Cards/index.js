@@ -16,7 +16,7 @@ function Cards() {
       setDeck(response);
     }
     getDeck();
-  })
+  }, [deckId])
 
   if (!deck) return null;
   return (

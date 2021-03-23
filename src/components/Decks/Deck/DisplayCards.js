@@ -1,13 +1,24 @@
-import React from "react";
-import { deleteCard } from "./../../../utils/api";
+import React, {useState, useEffect} from "react";
+import { deleteCard, readDeck } from "./../../../utils/api";
 import {Link, useRouteMatch, useHistory} from "react-router-dom";
 
 function DisplayCards({deck}) {
   const {url} = useRouteMatch();
   const history = useHistory();
   
+  const [cards, setCards] = useState(null);
+
+  useEffect(() => {
+    async function getCards() {
+      const response = await readDeck(deck.id);
+      setCards(response.cards);
+    }
+    getCards();
+  }, [deck.id])
+
+  if (!cards) return null;
   return (
-    deck.cards.map(card => {
+    cards.map(card => {
       return (
         <div className="col-sm-6" key={card.id}>
           <div className="card">
@@ -18,7 +29,12 @@ function DisplayCards({deck}) {
                 <Link to={`${url}/cards/${card.id}/edit`}className="btn btn-secondary mr-1">Edit</Link>
                 <button className="btn btn-danger" onClick={() => {
                     if (window.confirm("Are you sure you want to delete this card?")) {
-                      deleteCard(card.id)
+                      deleteCard(card.id);
+                      history.push(`${url}`);
+                      setCards(prevCards => {
+                        const newCards = prevCards.filter(item => item.id !== card.id)
+                        return newCards;
+                      })
                     } else {
                       history.push(`${url}`)
                     }
