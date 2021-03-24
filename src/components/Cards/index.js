@@ -20,14 +20,16 @@ function Cards() {
 
   if (!deck) return null;
   return (
-    <Switch>
-      <Route exact path={`${path}/new`}>
-        <AddCard deck={deck} />
-      </Route>
-      <Route path={`${path}/:cardId/edit`}>
-        <EditCard deck={deck} />
-      </Route>
-    </Switch>
+    <>
+      <Switch>
+        <Route exact path={`${path}/new`}>
+          <AddCard deck={deck} />
+        </Route>
+        <Route path={`${path}/:cardId/edit`}>
+          <EditCard deck={deck} />
+        </Route>
+      </Switch>
+    </>
   )
 }
 
