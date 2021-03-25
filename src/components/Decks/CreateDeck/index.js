@@ -1,5 +1,5 @@
 import React from "react";
-import CreateForm from "./CreateForm";
+import DeckForm from "./../DeckForm";
 import Breadcrumb from "./Breadcrumb";
 
 function CreateDeck() {
@@ -7,7 +7,8 @@ function CreateDeck() {
   return (
     <>
       <Breadcrumb />
-      <CreateForm />
+      <h1>Create Deck</h1>
+      <DeckForm />
     </>
   )
 }
