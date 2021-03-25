@@ -16,10 +16,24 @@ function ShowDecks() {
 
   const history = useHistory();
 
+  
   // creates a card listing for each deck
   const deckListings = decks.map((deck) => {
     const cards = deck.cards;
-      
+    
+    function handleDelete(event) {
+      if (window.confirm("Are you sure you want to delete this deck?")) {
+        deleteDeck(deck.id);
+        setDecks(prevDeck => {
+          const newDeck = prevDeck.filter(item => item.id !== deck.id)
+          return newDeck;
+        })  
+      } else {
+        event.target.parentElement.parentElement.parentElement.style.backgroundColor = "#fff";
+        history.push("/");
+      }
+    }
+    
     return (
       <div className="col-sm-6" key={deck.id}>
         <div className="card">
@@ -35,20 +49,7 @@ function ShowDecks() {
                 <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
               </div>
               <div>
-                <button className="btn btn-danger" onClick={() => {
-                    if (window.confirm("Are you sure you want to delete this deck?")) {
-                      deleteDeck(deck.id);
-                      setDecks(prevDeck => {
-                        const newDeck = prevDeck.filter(item => item.id !== deck.id)
-                        return newDeck;
-                      })  
-                    } else {
-                      history.push("/");
-                    }
-                  }
-                }>
-                    Delete
-                </button>
+                <button className="btn btn-danger" onMouseDown={(event) => event.target.parentElement.parentElement.parentElement.style.backgroundColor = "#E8eff1"} onClick={handleDelete}>Delete</button>
               </div>
             </div>
           </div>
