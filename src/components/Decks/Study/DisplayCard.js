@@ -37,7 +37,7 @@ function DisplayCard({deck}) {
           <div className="card-body">
             <h5 className="card-title">Card {Card + 1} of {allCards.length}</h5>
             <p className="card-text">{Side ? allCards[Card].front : allCards[Card].back}</p>
-            <button id="previous" className={!Card ? "btn btn-primary disabled" : "btn btn-primary"} onClick={handlePrev}>Previous</button>
+            { Card >= 1 ? <button id="previous" className="btn btn-primary" onClick={handlePrev}>Previous</button> : null}
             <button className="btn btn-secondary mx-2" onClick={handleFlip}>Flip</button>
             {!Side ? <button className="btn btn-primary" onClick={handleNext}>Next</button> : null}
           </div>
