@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {useParams} from "react-router-dom";
 import { readDeck } from "../../../utils/api";
 import Breadcrumb from "./Breadcrumb";
-import EditForm from "./EditForm";
+import DeckForm from "./../DeckForm";
 
 function EditDeck() {
   
@@ -21,7 +21,8 @@ function EditDeck() {
   return (
     <>
     <Breadcrumb deck={deck}/>
-    <EditForm deck={deck} />
+    <h1>Edit Deck</h1>
+    <DeckForm deck={deck} />
     </>
   )
 }
