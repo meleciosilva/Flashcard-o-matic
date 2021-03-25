@@ -15,10 +15,8 @@ function CardForm({deck}) {
   useEffect(() => {
     async function fetchCard() {
       const response = await readCard(cardId);
-      const cardFront = {"front": response.front};
-      const cardBack = {"back": response.back};
-      setFront(cardFront);
-      setBack(cardBack);
+      setFront({"front": response.front});
+      setBack({"back": response.back});
     }
     function addOrEdit() {
       if (pathname.includes("new")) {
@@ -29,7 +27,7 @@ function CardForm({deck}) {
       }
     }
     addOrEdit();
-  }, [isEdit, pathname, cardId])
+  }, [pathname, cardId])
 
   function handleFront(event) {
     setFront({...front, "front": event.target.value});
@@ -43,7 +41,7 @@ function CardForm({deck}) {
     history.push(`/decks/${deckId}`);
   }
 
-  function handleSubmit() {
+  function handleUpdate() {
     updateCard({"id": cardId, "deckId": deck.id, ...front, ...back});
     history.push(`/decks/${deck.id}`);
   }
@@ -77,8 +75,8 @@ function CardForm({deck}) {
         <button 
           type="button"
           className="btn btn-primary"
-          onClick={isEdit ? handleSubmit : handleSave}>
-          {isEdit ? "Submit" : "Save"}
+          onClick={isEdit ? handleUpdate : handleSave}
+          >Save
         </button>
 
       </form>
