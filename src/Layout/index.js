@@ -18,7 +18,7 @@ function Layout() {
           <Route path="/decks">
             <Decks />
           </Route>
-          <Route path="*">
+          <Route>
             <NotFound />
           </Route>
         </Switch>
