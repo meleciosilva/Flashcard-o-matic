@@ -21,7 +21,7 @@ function View() {
   if (!deck) return null;
   return (
     <>
-      <div className="col-sm-12">
+      <div className="col-sm-12 p-0">
         <div className="card" style={{border: "none"}}>
           <div className="card-body">
             <h5 className="card-title">{deck.name}</h5>
@@ -48,6 +48,9 @@ function View() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <h1>Cards</h1>
       </div>
       <DisplayCards deck={deck}/>
     </>
