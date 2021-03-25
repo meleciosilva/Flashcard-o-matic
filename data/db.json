@@ -2,28 +2,13 @@
   "decks": [
     {
       "id": 1,
-      "name": "Rendering in React is Awesome",
+      "name": "Rendering in React",
       "description": "React Router is a collection of navigational components that compose declaratively with your application."
     },
     {
+      "id": 2,
       "name": "React Router",
-      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
-      "id": 2
-    },
-    {
-      "name": "Happy Deck",
-      "description": "Here it is",
-      "id": 3
-    },
-    {
-      "name": "Newest Deck",
-      "description": "HERE",
-      "id": 4
-    },
-    {
-      "name": "boom",
-      "description": "here",
-      "id": 5
+      "description": "React Router is a collection of navigational components that compose declaratively with your application."
     }
   ],
   "cards": [
@@ -63,48 +48,6 @@
       "back": "b",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "front": "Now it is working",
-      "back": "Good job",
-      "deckId": 1,
-      "id": 8
-    },
-    {
-      "front": "Here's the first card",
-      "back": "Paragraph",
-      "deckId": 3,
-      "id": 9
-    },
-    {
-      "front": "gfgf",
-      "back": "gfgf",
-      "deckId": 3,
-      "id": 10
-    },
-    {
-      "id": 11,
-      "deckId": 3,
-      "front": "updated",
-      "back": "Here"
-    },
-    {
-      "front": "here is it",
-      "back": "np",
-      "deckId": 3,
-      "id": 12
-    },
-    {
-      "id": 13,
-      "deckId": 3,
-      "front": "new 1 edited here",
-      "back": "new 1 yup"
-    },
-    {
-      "front": "new 2",
-      "back": "new 2",
-      "deckId": 3,
-      "id": 14
     }
   ]
 }
