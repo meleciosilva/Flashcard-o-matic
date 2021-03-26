@@ -10,7 +10,7 @@ import Cards from "./../../Cards/index";
 function Deck() {
   const {path} = useRouteMatch();
 
-  return (
+  return ( 
     <>
       <Switch>
         <Route exact path={`${path}`}>

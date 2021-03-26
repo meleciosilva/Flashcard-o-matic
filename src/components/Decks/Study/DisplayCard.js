@@ -13,7 +13,7 @@ function DisplayCard({deck}) {
   function handleFlip() {
     setSide(!Side);
   }
-
+ 
   function handleNext() {
     setCard(prevCard => prevCard + 1);
     setSide(true); // sets side to front when switching to another card

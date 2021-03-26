@@ -10,6 +10,6 @@ function Home() {
       <ShowDecks />
     </div>
   )
-}
+} 
 
 export default Home;

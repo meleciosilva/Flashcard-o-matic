@@ -10,7 +10,7 @@ function CreateDeck() {
       <h1>Create Deck</h1>
       <DeckForm />
     </>
-  )
+  ) 
 }
 
 export default CreateDeck;

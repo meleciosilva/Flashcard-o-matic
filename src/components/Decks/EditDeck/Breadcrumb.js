@@ -12,6 +12,6 @@ function Breadcrumb({deck}) {
     </ol>
   </nav>
   )
-}
+} 
 
 export default Breadcrumb;

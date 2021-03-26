@@ -11,7 +11,7 @@ function Breadcrumb() {
     async function getDeck() {
       const response = await readDeck(deckId);
       setDeck(response);
-    }
+    } 
     getDeck();
   }, [deckId])
   

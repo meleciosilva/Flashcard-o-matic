@@ -15,7 +15,7 @@ function Layout() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/decks">
+          <Route path="/decks"> 
             <Decks />
           </Route>
           <Route>

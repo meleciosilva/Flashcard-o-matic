@@ -12,7 +12,7 @@ function Breadcrumb({deck}) {
       <li className="breadcrumb-item"><Link to={`/decks/${deck.id}`}>{deck.name}</Link></li>
       <li className="breadcrumb-item active" aria-current="page">{`Edit Card ${cardId}`}</li>
     </ol>
-  </nav>
+  </nav> 
   )
 }
 

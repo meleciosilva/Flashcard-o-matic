@@ -15,7 +15,7 @@ function Study() {
     }
     getDeck();
   }, [deckId])
-
+  
   if (!deck) return null;
   return (
     <>

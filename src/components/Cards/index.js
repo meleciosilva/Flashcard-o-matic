@@ -15,7 +15,7 @@ function Cards() {
       const response = await readDeck(deckId);
       setDeck(response);
     }
-    getDeck();
+    getDeck(); 
   }, [deckId])
 
   if (!deck) return null;

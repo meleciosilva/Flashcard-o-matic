@@ -8,7 +8,7 @@ function Breadcrumb() {
       <li className="breadcrumb-item"><Link to="/">Home</Link></li>
       <li className="breadcrumb-item active" aria-current="page">Create Deck</li>
     </ol>
-  </nav>
+  </nav> 
   )
 }
 

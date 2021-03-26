@@ -20,7 +20,7 @@ function View() {
 
   if (!deck) return null;
   return (
-    <>
+    <> 
       <div className="col-sm-12 p-0">
         <div className="card" style={{border: "none"}}>
           <div className="card-body">

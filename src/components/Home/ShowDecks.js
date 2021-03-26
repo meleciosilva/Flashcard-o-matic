@@ -16,7 +16,7 @@ function ShowDecks() {
 
   const history = useHistory();
 
-  
+   
   // creates a card listing for each deck
   const deckListings = decks.map((deck) => {
     const cards = deck.cards;

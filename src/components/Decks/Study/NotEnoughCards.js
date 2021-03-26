@@ -13,4 +13,4 @@ function NotEnoughCards({allCards}) {
   )
 }
 
-export default NotEnoughCards;
+export default NotEnoughCards; 

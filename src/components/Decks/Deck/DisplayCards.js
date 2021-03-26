@@ -12,7 +12,7 @@ function DisplayCards({deck}) {
     async function getCards() {
       const response = await readDeck(deck.id);
       setCards(response.cards);
-    }
+    } 
     getCards();
   }, [deck.id])
 

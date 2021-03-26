@@ -12,6 +12,6 @@ function EditCard({deck}) {
       <CardForm deck={deck} />
     </>
   )
-}
+} 
 
 export default EditCard;

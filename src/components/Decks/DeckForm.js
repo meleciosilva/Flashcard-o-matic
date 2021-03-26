@@ -30,7 +30,7 @@ function DeckForm({deck}) {
   function handleDescription(event) {
     setDescription({...description, "description": event.target.value});
   }
-
+ 
   async function handleCreate() {
     createDeck({...name, ...description});
     const response = await listDecks();

@@ -36,7 +36,7 @@ function CardForm({deck}) {
   function handleBack(event) {
     setBack({...back, "back": event.target.value});
   }
-
+ 
   function handleCancelAndDone() {
     history.push(`/decks/${deckId}`);
   }
