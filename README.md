@@ -16,9 +16,11 @@ Flashcard-o-matic is a simple online learning tool designed to help students stu
 ![Home Page](./images/Home.png)
 
 ![Create Deck](./images/Create-Deck.png)
+
 ### View
 
 ![View Deck](./images/View.png)
+
 #### Deck
 
 - **Edit**: users are able to edit the deck name and description
@@ -54,5 +56,5 @@ Flashcard-o-matic is a simple online learning tool designed to help students stu
 ## Future Goals
 
 - Animated card flips in Study mode
-- Score feature fot a gamified experience
+- Score feature to gamify and improve user experience
 - Quiz feature to demonstrate mastery of topics
