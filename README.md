@@ -13,8 +13,12 @@ Flashcard-o-matic is a simple online learning tool designed to help students stu
 - **Study**: directs users to an interactive study session with the deck's flashcards
 - **Delete**: users also have the option to delete the deck and all of its contents
 
+![Home Page](./images/Home.png)
+
+![Create Deck](./images/Create-Deck.png)
 ### View
 
+![View Deck](./images/View.png)
 #### Deck
 
 - **Edit**: users are able to edit the deck name and description
@@ -22,16 +26,25 @@ Flashcard-o-matic is a simple online learning tool designed to help students stu
 - **Add Cards**: add individual cards to a selected deck
 - **Delete**: Delete deck
 
+![Edit Deck Page](./images/Edit-Deck.png)
+![Delete Deck Page](./images/Delete-Deck.png)
+![Add Cards Page](./images/Add-Card.png)
+
 #### Cards
 
 - **Edit**: Edit card front and back
 - **Delete**: Delete card
+
+![Edit Card Page](./images/Edit-Card.png)
+![Delete Card Page](./images/Delete-Card.png)
 
 ### Study
 
 - **Flip**: view the back of the card
 - **Next**: view the next card
 - **Previous**: view the previous card
+
+![Study Deck](./images/Study.png)
 
 ## Technology
 
