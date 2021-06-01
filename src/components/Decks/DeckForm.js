@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useHistory, useLocation} from "react-router-dom";
-import { createDeck, updateDeck } from "../../utils/api/index";
+import { createDeck, updateDeck, listDecks } from "../../utils/api/index";
 
 function DeckForm({deck}) {
   
@@ -32,8 +32,10 @@ function DeckForm({deck}) {
   }
  
   async function handleCreate() {
-    createDeck({...name, ...description});
-    history.push('/');
+    await createDeck({...name, ...description});
+    const response = await listDecks();
+    const newDeckId = Math.max(...response.map(deck => deck.id));
+    history.push(`/decks/${newDeckId}`);
   }
 
   function handleUpdate() {
