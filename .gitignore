@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
-
+json-server.json
 .vercel
 .env
 build
+.vercelignore
