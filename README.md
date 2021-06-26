@@ -4,6 +4,10 @@
 
 Flashcard-o-matic is a simple online learning tool designed to help students study course content with flashcards.
 
+## Demo
+
+[Flashcard-o-matic](https://flashcard-o-matic-peach.vercel.app/)
+
 ## Flash-card-o-matic Express API
 
 [Flashcard-o-matic-server](https://github.com/meleciosilva/flashcard-o-matic-server)
